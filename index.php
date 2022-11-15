@@ -33,7 +33,7 @@
           </div>
         </div>
       </nav>
-    <div class="container">
+    <div class="container py-3">
             <?php include('./views/registration.php');?>
             <?php include('./views/datas.php');?>
     </div>
