@@ -1,8 +1,9 @@
 <?php include("./includes/header.php");?>
-    <?php include("./includes/navbar.php");?>
+    
+<?php include("./includes/navbar.php");?>
+
     <div class="container py-3">
-            <?php include('./views/registration.php');?>
-            <?php include('./views/datas.php');?>
+        <h3 class="display-4 text-shadow-sm">Bienvenue a monsieur <b>Bisimwa</b> Datas</h3>
     </div>
 
 <?php include("./includes/footer.php");?>

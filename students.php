@@ -6,6 +6,11 @@
                 <?php include('./views/registration.php');?>
             </div>
             <div class="col-md-7">
+                <div class="card card-body my-2 shadow-sm">
+                    <form action="#" method="post">
+                        <input type="search" name="search" id="search" placeholder="Recherche..." class="form-control">
+                    </form>
+                </div>
                 <?php include('./views/datas.php');?>
             </div>
         </div>

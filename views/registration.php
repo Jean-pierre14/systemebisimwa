@@ -1,7 +1,10 @@
 
-<div class="card card-body shadow-sm">
+<div class="card card-body my-2 shadow-sm">
     <h3>Enregistrement d'un eleve</h3>
-    <form action="#" method="post">
+    <div id="error">
+        <!-- Error -->
+    </div>
+    <form action="#" method="post" id="myForm">
         <div class="form-group">
             <label for="prenom">Prenom</label>
             <input type="text" name="prenom" id="prenom" placeholder="Prenom" value="" class="form-control"/>
@@ -9,7 +12,7 @@
         <div class="form-group">
             <label for="nom">Nom</label>
             <input type="text" name="nom" id="nom" placeholder="Nom" value="" class="form-control"/>
-        </div>
+        </div> 
         <div class="row">
             <div class="form-group col-lg-6">
                 <label for="classe">Classe</label>
@@ -34,7 +37,50 @@
             </div>
         </div>
         <div class="form-group my-2">
-            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            <button type="submit" id="btnRegistration" class="btn btn-primary">Enregistrer</button>
         </div>
     </form>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+<script>
+    const form = document.querySelector('#myForm'),
+        error = document.querySelector('#error'),
+        btnLogin = document.querySelector('#btnRegistration');
+
+    btnLogin.onclick = (e) => {
+        
+        e.preventDefault();
+
+        console.log("Clicked");
+
+        let xhr = new XMLHttpRequest();
+        
+        xhr.onload = () => {
+
+            if(xhr.readyState === XMLHttpRequest.DONE){
+                
+                if(xhr.status === 200){
+
+                    let data = xhr.response
+                    // alert(data)
+                    if(data === "success"){
+                        error.innerHTML = `<p class="alert alert-success">
+                            Login...
+                        </p>`
+                        location.href = "./users.php"
+                    }else{
+                        error.innerHTML = `<p class="alert alert-danger">${data}</p>`
+                    }
+                }
+
+            }
+        }
+
+        xhr.open("POST", "./config/registration.php", true);
+        
+        let formData = new FormData(form);
+        
+        xhr.send(formData)
+    }
+</script>

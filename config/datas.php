@@ -18,6 +18,32 @@
             }
             return json_encode($students);
         }
+        function Create(){
+            $prenom = '';
+            $nom = '';
+            $classe = '';
+            $annee = '';
+            // Create query
+
+            $query = 'INSERT INTO students 
+                SET 
+                    prenom = :prenom,
+                    nome = :nom,
+                    classe = :classe,
+                    annee = :annee 
+                ';
+
+            // Prepare stmt
+            $stmt = $this->db->prepare($query);
+
+            // Clean data
+            $this->prenom = htmlspecialchars(strip_tags(trim($prenom)));
+            $this->nom = htmlspecialchars(strip_tags(trim($nom)));
+            $this->classe = htmlspecialchars(strip_tags(trim($classe)));
+            $this->annee = htmlspecialchars(strip_tags(trim($annee)));
+
+            
+        }
     }
 
     $API = new API;
