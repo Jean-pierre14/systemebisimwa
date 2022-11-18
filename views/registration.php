@@ -37,7 +37,7 @@
             </div>
         </div>
         <div class="form-group my-2">
-            <button type="submit" id="btnRegistration" class="btn btn-primary">Enregistrer</button>
+            <button type="submit" name="register" id="btnRegistration" class="btn btn-primary">Enregistrer</button>
         </div>
     </form>
 </div>
