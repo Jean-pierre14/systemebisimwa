@@ -62,15 +62,19 @@
                 
                 if(xhr.status === 200){
 
-                    let data = xhr.response
+                    let data = xhr.response;
                     // alert(data)
                     if(data === "success"){
+
                         error.innerHTML = `<p class="alert alert-success">
-                            Login...
-                        </p>`
-                        location.href = "./users.php"
+                            Enregistrement reussi...
+                        </p>`;
+
+                        form.reset(0);
+                        Select();
                     }else{
                         error.innerHTML = `<p class="alert alert-danger">${data}</p>`
+                        
                     }
                 }
 

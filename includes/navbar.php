@@ -13,7 +13,7 @@
                 <a class="nav-link" href="students.php">Eleves</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="parametre.php">Parametres</a>
+                <a class="nav-link" href="settings.php">Parametres</a>
               </li>
             </ul>
             <form class="d-flex" role="search">

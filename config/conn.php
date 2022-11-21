@@ -1,3 +1,3 @@
 <?php
 
-    $conn = mysqli_connect("localhost", "bisimwa_DB", "root", "") OR die("The DB is not connected");
+    $con = mysqli_connect("localhost", "root", "", "bisimwa_db") or die("Cannot found this DB");
