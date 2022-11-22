@@ -11,6 +11,8 @@
     if(empty($prenom) || empty($nom) || empty($classe) || empty($annee)){
         $output = 'Les champs sont vides';
     }else{
+        $check = mysqli_query($con, "SELECT * FROM students");
+
         $sql = mysqli_query($con, "INSERT INTO students(nom, prenom, classe, annee) VALUES('$nom', '$prenom', '$classe', '$annee')");
         if($sql){
             $output = 'success';

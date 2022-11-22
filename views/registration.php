@@ -52,19 +52,17 @@
         
         e.preventDefault();
 
-        console.log("Clicked");
-
         let xhr = new XMLHttpRequest();
         
         xhr.onload = () => {
 
             if(xhr.readyState === XMLHttpRequest.DONE){
                 
-                if(xhr.status === 200){
+                if(xhr.status === 200) {
 
                     let data = xhr.response;
                     // alert(data)
-                    if(data === "success"){
+                    if(data === "success") {
 
                         error.innerHTML = `<p class="alert alert-success">
                             Enregistrement reussi...
