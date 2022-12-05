@@ -4,6 +4,9 @@
     <div id="error">
         <!-- Error -->
     </div>
+
+    <?php require_once "errors.php";?>
+    <?php require_once "registration.php";?>
     <form action="#" method="post" id="myForm">
         <div class="form-group">
             <label for="prenom">Prenom</label>
@@ -48,41 +51,41 @@
         error = document.querySelector('#error'),
         btnLogin = document.querySelector('#btnRegistration');
 
-    btnLogin.onclick = (e) => {
+    // btnLogin.onclick = (e) => {
         
-        e.preventDefault();
+    //     e.preventDefault();
 
-        let xhr = new XMLHttpRequest();
+    //     let xhr = new XMLHttpRequest();
         
-        xhr.onload = () => {
+    //     xhr.onload = () => {
 
-            if(xhr.readyState === XMLHttpRequest.DONE){
+    //         if(xhr.readyState === XMLHttpRequest.DONE){
                 
-                if(xhr.status === 200) {
+    //             if(xhr.status === 200) {
 
-                    let data = xhr.response;
-                    // alert(data)
-                    if(data === "success") {
+    //                 let data = xhr.response;
+    //                 // alert(data)
+    //                 if(data === "success") {
 
-                        error.innerHTML = `<p class="alert alert-success">
-                            Enregistrement reussi...
-                        </p>`;
+    //                     error.innerHTML = `<p class="alert alert-success">
+    //                         Enregistrement reussi...
+    //                     </p>`;
 
-                        form.reset(0);
-                        Select();
-                    }else{
-                        error.innerHTML = `<p class="alert alert-danger">${data}</p>`
+    //                     form.reset(0);
+    //                     Select();
+    //                 }else{
+    //                     error.innerHTML = `<p class="alert alert-danger">${data}</p>`
                         
-                    }
-                }
+    //                 }
+    //             }
 
-            }
-        }
+    //         }
+    //     }
 
-        xhr.open("POST", "./config/registration.php", true);
+    //     xhr.open("POST", "./config/registration.php", true);
         
-        let formData = new FormData(form);
+    //     let formData = new FormData(form);
         
-        xhr.send(formData)
-    }
+    //     xhr.send(formData)
+    // }
 </script>
