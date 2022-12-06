@@ -15,6 +15,7 @@
                     <?php include('./views/datas.php');?>
                 </div>
             </div>
+        
         <?php else:?>
             <div class="row justify-content-center">
                 <div class="col-md-8">
@@ -27,6 +28,7 @@
                 </div>
             </div>
         <?php endif;?>
+
     </div>
 <?php include("./includes/footer.php");?>
 

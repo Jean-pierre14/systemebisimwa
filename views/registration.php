@@ -5,7 +5,7 @@
         <!-- Error -->
     </div>
 
-    <?php require_once "errors.php";?>
+    <?php require_once "./includes/errors.php";?>
     <?php require_once "registration.php";?>
     <form action="#" method="post" id="myForm">
         <div class="form-group">

@@ -13,6 +13,9 @@
                 <a class="nav-link" href="students.php">Eleves</a>
               </li>
               <li class="nav-item">
+                <a class="nav-link" href="parascolaire.php">Parascolaire</a>
+              </li>
+              <li class="nav-item">
                 <a class="nav-link" href="settings.php">Parametres</a>
               </li>
             </ul>
