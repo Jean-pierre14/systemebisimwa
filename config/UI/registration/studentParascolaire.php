@@ -2,7 +2,8 @@
     require_once "../../conn.php";
 
     $output = '';
-    $sql = mysqli_query($con, "SELECT * FROM students WHERE parascolaireBoolean = ''");
+    
+    $sql = mysqli_query($con, "SELECT * FROM students WHERE (parascolaireBoolean = '') ORDER BY prenom ASC LIMIT 8");
 
     if(@mysqli_num_rows($sql) > 0) {
 

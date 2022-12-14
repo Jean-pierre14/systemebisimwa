@@ -63,8 +63,9 @@
                     <a href="parascolaire.php" class="btn btn-success btn-sm">Retour</a>
                 </div>
 
-                <form action="" method="post" class="mb-3">
-                    <input type="search" name="search" id="search" placeholder="Rechercher..." class="form-control">
+                <form action="" method="post" class="mb-3" id="mySearch">
+                    <input type="hidden" name="action" id="action" value="searchone" class="form-control" />
+                    <input type="search" name="text" id="search" placeholder="Rechercher..." class="form-control" />
                 </form>
                 <!-- API of Student list -->
                 <?php require_once "./includes/components/parascolaire/registration.php"?>
@@ -75,3 +76,13 @@
 </div>
 
 <?php include("./includes/footer.php");?>
+
+<script src="./assets//js/jquery.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $(document).on('.event-add', function() {
+        alert("Coool")
+    })
+});
+</script>
