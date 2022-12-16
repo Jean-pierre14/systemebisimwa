@@ -61,9 +61,4 @@ search.onkeyup = () => {
         SelectAll();
     }
 }
-
-const eventAdd = document.querySelectorAll('.event-add')
-eventAdd.onclick = () => {
-    console.log('Clicked')
-}
 </script>

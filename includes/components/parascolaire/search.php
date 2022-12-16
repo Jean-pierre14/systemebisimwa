@@ -6,6 +6,7 @@
     require_once "../../../config/conn.php";
 
     if(isset($_POST['action'])){
+
         if($_POST['action'] === 'searchone'){
             $text = mysqli_real_escape_string($con, htmlentities(trim($_POST['text'])));
             if(!$text){
@@ -23,9 +24,9 @@
                         $output .= '
                         
                             <li class="list-group-item py-4 d-flex justify-content-between align-items-center list-group-item-action">
-                                '.$row['prenom'].'
+                                <span id="fullname">'.$row['prenom']. ' '.$row['nom'].'<span/>
                                 <span class="btn-group">
-                                    <button class="btn btn-sm btn-warning event-add" type="button" id="'.$row['id'].'">Action</button>
+                                    <button class="btn btn-sm btn-warning event-add" type="button" data="'.$row['prenom']. ' '.$row['nom'].'" id="'.$row['id'].'">Action</button>
                                 </span>
                             </li>
                         
@@ -39,6 +40,31 @@
                 print $output;
             }
             
+        }
+        if($_POST['action'] === 'addPara'){
+            $Id = mysqli_real_escape_string($con, htmlentities(trim($_POST['id'])));
+
+            $sql = mysqli_query($con, "SELECT * FROM students WHERE id = $Id");
+            $data = mysqli_fetch_assoc($sql);
+
+            $fullname = $data['nom'] . ' ' . $data['prenom'];
+
+            if($sql){
+                $sql2 = mysqli_query($con, "INSERT INTO parascolaire_tb(student_Id, Fullname) VALUES($Id, '$fullname')");
+
+                if($sql2){
+                    $sql3 = mysqli_query($con, "UPDATE students SET parascolaireBoolean = 'Active' WHERE id = $Id");
+                    if($sql3):
+                        echo "success";
+                    else:
+                        echo "error";
+                    endif;
+                }else{
+                    echo "error";
+                }
+            }else{
+                echo "error";
+            }
         }
     }
 ?>

@@ -81,8 +81,27 @@
 
 <script>
 $(document).ready(function() {
-    $(document).on('.event-add', function() {
-        alert("Coool")
+    $(document).on('click', '.event-add', function() {
+
+        let id = $(this).attr('id')
+
+        console.log(fullname)
+
+        $.ajax({
+            method: 'POST',
+            url: './includes/components/parascolaire/search.php',
+            data: {
+                action: 'addPara',
+                id,
+            },
+            success: function(data) {
+                if (data === 'success') {
+                    SelectAll();
+                    // console.log(data)
+                }
+                console.log(data)
+            }
+        })
     })
 });
 </script>
