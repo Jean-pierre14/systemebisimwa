@@ -24,7 +24,7 @@
                         $output .= '
                         
                             <li class="list-group-item py-4 d-flex justify-content-between align-items-center list-group-item-action">
-                                <span id="fullname">'.$row['prenom']. ' '.$row['nom'].'<span/>
+                                '.$row['prenom']. ' '.$row['nom'].'
                                 <span class="btn-group">
                                     <button class="btn btn-sm btn-warning event-add" type="button" data="'.$row['prenom']. ' '.$row['nom'].'" id="'.$row['id'].'">Action</button>
                                 </span>

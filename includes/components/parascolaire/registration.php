@@ -1,7 +1,5 @@
 <div id="registrationList">
-
-
-
+    <!-- Data -->
 </div>
 
 <script>
