@@ -18,44 +18,31 @@
                     </div>
                 </div>
 
-                <div class="d-flex justify-content-between align-items-center">
-                    <span>
-                        <form action="" method="post">
+                <form action="" method="post" class="myData">
+                    <div class="d-flex justify-content-between align-items-center">
+                        <span>
+
                             <input type="search" name="search" id="search" placeholder="Rechercher..."
                                 class="form-control">
-                        </form>
-                    </span>
-                    <span>
-                        <select name="mois" class="form-control" id="mois">
-                            <?php for($n = 1; $n <= 12; $n++):?>
-                            <?php if(intval(date('m')) === $n):?>
-                            <option value="<?= $n;?>" selected>Mois: <?= $n;?></option>
-                            <?php else:?>
-                            <option value="<?= $n?>"><?= $n?></option>
-                            <?php endif;?>
-                            <?php endfor;?>
-                        </select>
-                    </span>
-                </div>
 
-                <div class="my-3">
-                    <div id="results" class="d-block">
-                        <div class="">
-                            <ul class="list-group list-group-flush">
-                                <li
-                                    class="list-group-item py-3 d-flex justify-content-between align-items-center list-group-item-action">
-                                    First item
-                                    <span class="btn-group">
-                                        <button class="btn btn-sm btn-warning" type="button" id="non">Non</button>
-                                        <button class="btn btn-sm btn-primary" type="button" id="oui">Oui</button>
-                                        <button class="btn btn-sm btn-danger" type="button" id="oui">Effacer</button>
-                                    </span>
-                                </li>
-                            </ul>
-                        </div>
+                        </span>
+                        <span>
+                            <select name="mois" onchange="mySelect()" class="form-control" id="mois">
+                                <?php for($n = 1; $n <= 12; $n++):?>
+                                <?php if(intval(date('m')) === $n):?>
+                                <option value="<?= $n;?>" selected>Mois: <?= $n;?></option>
+                                <?php else:?>
+                                <option value="<?= $n?>"><?= $n?></option>
+                                <?php endif;?>
+                                <?php endfor;?>
+                            </select>
+                        </span>
                     </div>
-                </div>
+                </form>
+
+                <?php require_once "./includes/components/parascolaire/data.php";?>
             </div>
+
             <?php else:?>
             <div class="card card-body my-2 shadow-md">
                 <div class="d-flex justify-content-between align-items-center flex-wrap">
