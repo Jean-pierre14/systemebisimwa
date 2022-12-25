@@ -1,0 +1,8 @@
+.visibility {
+  visibility: hidden;
+  transition: all ease 0.3s;
+}
+.list-group-item:hover > .visibility,
+.list-group-item:focus > .visibility {
+  visibility: visible;
+}

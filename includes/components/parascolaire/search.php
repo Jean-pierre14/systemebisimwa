@@ -5,7 +5,7 @@
 
     require_once "../../../config/conn.php";
 
-    if(isset($_POST['action'])){
+    if(isset($_POST['action'])) {
 
         if($_POST['action'] === 'searchone'){
             $text = mysqli_real_escape_string($con, htmlentities(trim($_POST['text'])));
@@ -25,7 +25,7 @@
                         
                             <li class="list-group-item py-4 d-flex justify-content-between align-items-center list-group-item-action">
                                 '.$row['prenom']. ' '.$row['nom'].'
-                                <span class="btn-group">
+                                <span class="btn-group visibility">
                                     <button class="btn btn-sm btn-warning event-add" type="button" data="'.$row['prenom']. ' '.$row['nom'].'" id="'.$row['id'].'">Action</button>
                                 </span>
                             </li>

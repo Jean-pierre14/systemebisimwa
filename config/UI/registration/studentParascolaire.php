@@ -14,8 +14,8 @@
             
                 <li class="list-group-item py-4 d-flex justify-content-between align-items-center list-group-item-action">
                     '.$row['prenom']. ' '.$row['nom'].'
-                    <span class="btn-group">
-                        <button class="btn btn-sm btn-warning event-add" type="button" id="'.$row['id'].'">Action</button>
+                    <span class="btn-group visibility">
+                        <button class="btn btn-sm btn-warning event-add" data-fullname="'.$row['prenom']. ' '.$row['nom'].'" type="button" id="'.$row['id'].'">Action</button>
                     </span>
                 </li>
             

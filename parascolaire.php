@@ -68,12 +68,13 @@
 
 <script>
 $(document).ready(function() {
+
     $(document).on('click', '.event-add', function() {
 
         let id = $(this).attr('id')
+        let fullname = $(this).data('fullname');
 
-        console.log(fullname)
-
+        // console.log(fullname);
         $.ajax({
             method: 'POST',
             url: './includes/components/parascolaire/search.php',
@@ -90,5 +91,6 @@ $(document).ready(function() {
             }
         })
     })
+
 });
 </script>

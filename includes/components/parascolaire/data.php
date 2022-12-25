@@ -17,15 +17,28 @@
 </div>
 
 <script>
-const myData = document.querySelector('#myData');
+let myData = document.querySelector('#myData');
 
 function mySelect() {
-    const selectData = document.querySelector('#mois').value;
+
     let xhr = new XMLHttpRequest();
-    xhr.onload = () => {}
-    xhr.open('POST', 'url', true)
-    xhr.setRequestHeader('Content-type', 'application/json');
-    const formData = new FormData(myData);
-    xhr.send(formData);
+
+    xhr.onload = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                let data = xhr.response;
+                document.getElementById('results').innerHTML = data;
+            }
+        }
+    }
+
+    xhr.open('POST', './includes/components/parascolaire/data.json.php', true);
+
+    // xhr.setRequestHeader('Content-type', 'application/json');
+
+    // const formData = new FormData(myData);
+
+    xhr.send();
 }
+mySelect();
 </script>

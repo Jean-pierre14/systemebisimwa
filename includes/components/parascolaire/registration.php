@@ -11,7 +11,7 @@ resultats.innerHTML = `
 <ul class="list-group list-group-flush">
     <li class="list-group-item py-4 d-flex justify-content-between align-items-center list-group-item-action">
         Chargement...
-        <span class="btn-group">
+        <span class="btn-group visibility">
             <button class="btn btn-sm btn-warning" type="" id="">Action</button>
         </span>
     </li>

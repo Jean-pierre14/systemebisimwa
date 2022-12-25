@@ -21,7 +21,7 @@
         }
         $output = json_encode($response, JSON_PRETTY_PRINT);
     }else{
-        $output = 'No data';
+        $output = json_encode($response['Vous \'avez des donnees']);
     }
     echo $output;
 ?>
