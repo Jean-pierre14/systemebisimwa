@@ -1,5 +1,3 @@
-
-
 <div class="card card-body shadow-sm">
     <table class="table table-sm table-responsive table-striped">
         <thead>
@@ -64,12 +62,12 @@
     </table>
 </div>
 <script>
-    let response = document.querySelector('#response');
+let response = document.querySelector('#response');
 
-    function Select(){
-        let output = 'chargement...';
+function Select() {
+    let output = 'chargement...';
 
-        fetch('./config/data_json.php', {
+    fetch('./config/data_json.php', {
             method: 'POST'
         })
         .then((res) => {
@@ -87,8 +85,8 @@
                     <td>${u.annee}</td>
                     <td>
                         <div class="btn-group">
-                            <a href="students.php?edit=${u.id}" class="btn btn-sm btn-primary">Edit</a>
-                            <a href="students.php?delete=${u.id}" class="btn btn-sm btn-danger">Delete</a>
+                            <a href="eleve.php?edit=${u.id}" class="btn btn-sm btn-primary">Edit</a>
+                            <a href="eleve.php?delete=${u.id}" class="btn btn-sm btn-danger">Delete</a>
                         </div>
                     </td>
                 </tr>
@@ -97,7 +95,6 @@
             response.innerHTML = output;
         })
         .catch(err => console.log(err.message))
-    }
-    Select();
+}
+Select();
 </script>
-

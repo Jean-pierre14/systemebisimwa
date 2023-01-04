@@ -8,7 +8,8 @@
 
     $sql = mysqli_query($con, "SELECT * FROM students  WHERE annee = '2022-2023' ORDER BY id DESC");
 
-    if(@mysqli_num_rows($sql) > 0){
+    if(@mysqli_num_rows($sql) > 0) {
+        sleep(1);
         $output = '';
         $i = 0;
         while($row = mysqli_fetch_assoc($sql)){
