@@ -1,5 +1,5 @@
 <?php require_once "./configurations/registrationConfig.php";?>
-<form action="" method="post" novalidate>
+<form action="" method="post">
     <?php require_once "./includes/errors.php"?>
     <div class="row g-2">
         <div class="col-md-6">

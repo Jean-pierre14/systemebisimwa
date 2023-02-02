@@ -16,8 +16,8 @@ if(@mysqli_num_rows($sql) > 0){
         <td>'.$row['sex'].'</td>
         <td>
             <div class="actions btn-group">
-                <a href="student.php?edit='.$row['id'].'" class="btn btn-sm btn-info">Modifier</a>
-                <a href="student.php?delete='.$row['id'].'" class="btn btn-sm btn-danger">Effacer</a>
+                <a href="editStud.php?edit='.$row['id'].'" class="btn btn-sm btn-info">Modifier</a>
+                <a href="editStud.php?delete='.$row['id'].'" class="btn btn-sm btn-danger">Effacer</a>
             </div>
         </td>
     </tr>';

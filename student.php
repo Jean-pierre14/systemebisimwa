@@ -1,4 +1,24 @@
-<?php require_once "./includes/header.php";?>
+<?php require_once "./includes/header.php";
+require_once "./configurations/db.con.php";
+if(isset($_GET['edit'])){
+    $id = mysqli_real_escape_string($con, htmlentities(trim($_GET['edit'])));
+    
+    $sql = mysqli_query($con, "SELECT * FROM students WHERE id = $id");
+
+    if($sql){
+        $row = mysqli_fetch_array($sql);
+
+        $nom = $row['nom'];
+        $prenom = $row['prenom'];
+        $classe = $row['classe'];
+        $annee = $row['annee'];
+        $sex = $row['sex'];
+        $pere = $row['pere'];
+        $mere = $row['mere'];
+    }
+}
+
+?>
 
 <body>
     <div class="container">
