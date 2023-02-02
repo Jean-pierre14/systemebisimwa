@@ -31,7 +31,7 @@ if(isset($_GET['edit'])){
                         <a href="student.php" class="btn btn-sm btn-success">Retour</a>
                         <h4>Modifier le compte de l'eleve.</h4>
                         <span>
-                            Profil
+                            <img src="" alt="Profile" class="img-avatar-sm">
                         </span>
                     </div>
                 </div>
