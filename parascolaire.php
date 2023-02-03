@@ -4,6 +4,7 @@ require_once "./configurations/db.con.php";
 $sql = mysqli_query($con, "SELECT * FROM students WHERE parascolaireBoolean = ''");
 
 $output = "";
+$errors = array();
 
 if(@mysqli_num_rows($sql) > 0){
     $output .= '<table class="table table-striped"><tbdy>';
@@ -11,7 +12,7 @@ if(@mysqli_num_rows($sql) > 0){
         $output .= '<tr>
             <td>'.$row['prenom'].' '.$row['nom'].'</td>
             <td>
-                <a href="parascolaire.php?add='.$row['id'].'" class="btn btn-sm btn-success">Add</a>
+                <a href="parascolaire.php?add='.$row['id'].'&?prenom="'.$row['nom'].'"" class="btn btn-sm btn-success">Add</a>
             </td>
         </tr>';
     }
@@ -19,7 +20,23 @@ if(@mysqli_num_rows($sql) > 0){
 }else{
     $output = '<p class="alert alert-danger">Vous n\avez des donnees enregistrer dans votre systeme</p>';
 }
+
+if(isset($_GET['add'])){
+    $Id = mysqli_real_escape_string($con, htmlentities(trim($_GET['add'])));
+    $Slct = mysqli_query($con, "SELECT id, prenom, nom, classe FROM students WHERE id = $Id");
+    $row = mysqli_fetch_array($Slct);
+
+    $fullname = $row['prenom'] .' ' . $row['nom'];
+    $sql = mysqli_query($con, "UPDATE students SET parascolaireBoolean = $Id WHERE id = $Id");
+        if($sql){
+            $sql1 = mysqli_query($con, "INSERT INTO parascolaire_tb(student_id, Fullname) VALUE($Id, '$fullname')");
+            if($sql1){
+                header("location: parascolaire.php");
+            }
+        }
+}
 ?>
+
 
 <body>
     <div class="container">
@@ -40,6 +57,7 @@ if(@mysqli_num_rows($sql) > 0){
                             <h3>Mois</h3>
                         </div>
                         <div class="col-8 col-md-8">
+
                             <?= $output;?>
                         </div>
                     </div>
