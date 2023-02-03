@@ -4,7 +4,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-4">
+            <div class="col-4 col-md-4">
                 <div class="card card-body">
                     <h3>Bisimwa</h3>
                     <!-- Dynamic link from navLink.json -->
@@ -26,7 +26,7 @@
                             </a>
                         </li>
                         <li class="list-group-item">
-                            <a href="index.php"
+                            <a href="parascolaire.php"
                                 class="text-decoration-none d-flex justify-content-between align-items-center p-3">
                                 <span>Icon</span>
                                 <span>Parascolaire</span>
@@ -36,7 +36,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-8">
+            <div class="col-8 col-md-8">
                 <div class="card card-body">
                     <h3>Main</h3>
                 </div>
