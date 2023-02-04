@@ -55,10 +55,25 @@ if(isset($_GET['add'])){
                     <div class="row">
                         <div class="col-4 col-md-4">
                             <h3>Mois</h3>
+                            <div class="list-group list-group-flush">
+                                <a href="parascolaire.php?event=registration" class="list-group-item">Enregistrement</a>
+                                <a href="parascolaire.php?event=payment" class="list-group-item">Payement</a>
+                            </div>
                         </div>
                         <div class="col-8 col-md-8">
-
+                            <?php if(isset($_GET['event'])):?>
+                            <?php if($_GET['event'] == 'registration'):?>
+                            <h3 class="text-center">Registration system</h3>
                             <?= $output;?>
+                            <?php elseif($_GET['event'] == 'payment'):?>
+                            <h3 class="text-center">
+                                Payment system
+                            </h3>
+
+                            <?php endif;?>
+                            <?php else:?>
+                            img of the soccer
+                            <?php endif;?>
                         </div>
                     </div>
                 </div>
