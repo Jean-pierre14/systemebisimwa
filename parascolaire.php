@@ -64,12 +64,18 @@ if(isset($_GET['add'])){
                             <?php if(isset($_GET['event'])):?>
                             <?php if($_GET['event'] == 'registration'):?>
                             <h3 class="text-center">Registration system</h3>
+                            <form action="" method="post" class="mb-2">
+                                <input type="search" placeholder="Cherche l'eleve a enregistrer" name="search"
+                                    id="search" class="form-control">
+                            </form>
+                            <div id="results">
+                                <!-- Data -->
+                            </div>
                             <?= $output;?>
                             <?php elseif($_GET['event'] == 'payment'):?>
                             <h3 class="text-center">
                                 Payment system
                             </h3>
-
                             <?php endif;?>
                             <?php else:?>
                             img of the soccer
@@ -82,5 +88,31 @@ if(isset($_GET['add'])){
 
     </div>
 </body>
+
+<script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function() {
+    $(document).on("keyup", "#search", function() {
+        let text = $(this).val(),
+            txt = text.trim()
+
+        if (!txt == '') {
+            $.ajax({
+                url: './configurations/actions.php',
+                method: 'POST',
+                data: {
+                    txt,
+                    action: 'search'
+                },
+                success: function(data) {
+                    $('#result').html(data)
+                }
+            })
+        }
+
+    })
+})
+</script>
 
 </html>
