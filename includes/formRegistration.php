@@ -18,7 +18,7 @@
         </div>
         <div class="col-md-4">
             <div class="form-floating">
-                <select name="classe" id="floatingSelectGrid" class="form-select">
+                <select name="classe" id="floatingSelectGrid" class="form-select form-control">
                     <option value="" selected>-- Selection une classe --</option>
                     <?php for($i = 1; $i <= 6; $i++){
                                   ?>
@@ -32,7 +32,7 @@
         </div>
         <div class="col-md-4">
             <div class="form-floating">
-                <select class="form-select" name="sex" id="floatingSelectGrid">
+                <select class="form-select form-control" name="sex" id="floatingSelectGrid">
                     <option selected value="M">Masculin</option>
                     <option value="F">Feminin</option>
                 </select>
@@ -42,7 +42,7 @@
         <div class="col-md-4">
             <div class="form-floating">
 
-                <select class="form-select" name="annee" id="floatingSelectGrid">
+                <select class="form-select form-control" name="annee" id="floatingSelectGrid">
                     <option value="">
                         <?php
                         if(!empty($sex)){echo $sex;}else{echo "-- Selection l'annee scolaire --";}

@@ -32,16 +32,22 @@ if(isset($_GET['edit'])){
             </div>
         </div>
         <div class="row">
-            <div class="col-4">
+            <?php if(isset($_GET['add'])):?>
+            <div class=" col-md-12 mb-5">
+                <a href="student.php" class="btn btn-success mb-3">Liste d'eleves</a>
                 <div class="card card-body">
-                    <?php include_once "./includes/formRegistration.php";?>
+                    <?php require_once "./includes/formRegistration.php";?>
                 </div>
             </div>
-            <div class="col-8">
+            <?php else:?>
+
+            <div class="col-md-12 mb-5">
+                <a href="student.php?add" class="btn btn-success mb-3">Inscription</a>
                 <div class="card card-body">
-                    <?php include_once "./includes/datas.php";?>
+                    <?php require_once "./includes/datas.php";?>
                 </div>
             </div>
+            <?php endif;?>
         </div>
     </div>
 
