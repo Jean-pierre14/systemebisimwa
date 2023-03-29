@@ -40,59 +40,48 @@ if(isset($_GET['add'])){
 
 <body>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-10 col-10">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center flex-wrap">
-                            <a href="index.php" class="btn btn-sm btn-success">Retour</a>
-                            <h3>Parascolaire</h3>
-                            <img src="" alt="Icon" class="img-avatart-sm">
-                        </div>
-                    </div>
+
+        <div class="col-md-12">
+
+            <div class="my-2 card card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="index.php" class="btn btn-sm btn-success">Retour</a>
                 </div>
-                <div class="card mt-3 card-body">
-                    <div class="row">
-                        <div class="col-4 col-md-4">
-                            <h3>Mois</h3>
-                            <div class="list-group list-group-flush">
-                                <a href="parascolaire.php?event=registration" class="list-group-item">Enregistrement</a>
-                                <a href="parascolaire.php?event=payment" class="list-group-item">Payement</a>
-                            </div>
-                        </div>
-                        <div class="col-8 col-md-8">
-                            <?php if(isset($_GET['event'])):?>
-                            <?php if($_GET['event'] == 'registration'):?>
-                            <h3 class="text-center">Registration system</h3>
-                            <form action="" method="post" class="mb-2">
-                                <input type="search" placeholder="Cherche l'eleve a enregistrer" name="search"
-                                    id="search" class="form-control">
-                            </form>
-                            <div id="results">
-                                <!-- Data -->
-                            </div>
-                            <?= $output;?>
-                            <?php elseif($_GET['event'] == 'payment'):?>
-                            <h3 class="text-center">
-                                Payment system
-                            </h3>
-                            <?php endif;?>
-                            <?php else:?>
-                            img of the soccer
-                            <?php endif;?>
-                        </div>
-                    </div>
+            </div>
+            <div class="my-2 card card-body">
+                <h2>Parascolaire</h2>
+                <form action="" method="post" class="form-group my-2">
+                    <input type="search" name="search" id="search" placeholder="Recherche..." class="form-control" />
+                </form>
+                <div id="results">
+                    <h2 class="display-4 text-success">Chargement...</h2>
                 </div>
             </div>
         </div>
-
     </div>
 </body>
 
-<script src="https://code.jquery.com/jquery-3.6.3.min.js"
-    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+<script src="./assets/js/jquery-3.4.0.min.js"></script>
 <script>
 $(document).ready(function() {
+    fetch();
+    const results = document.getElementById('results');
+
+    function fetch() {
+        $.ajax({
+            url: './configurations/actions.php',
+            method: "post",
+            data: {
+                action: "fetch"
+            },
+            dataType: "JSON",
+            success: function(data) {
+
+                console.log("Data " + data);
+
+            }
+        })
+    }
     $(document).on("keyup", "#search", function() {
         let text = $(this).val(),
             txt = text.trim()
