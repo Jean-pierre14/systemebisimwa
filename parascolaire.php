@@ -62,46 +62,6 @@ if(isset($_GET['add'])){
 </body>
 
 <script src="./assets/js/jquery-3.4.0.min.js"></script>
-<script>
-$(document).ready(function() {
-    fetch();
-    const results = document.getElementById('results');
-
-    function fetch() {
-        $.ajax({
-            url: './configurations/actions.php',
-            method: "post",
-            data: {
-                action: "fetch"
-            },
-            dataType: "JSON",
-            success: function(data) {
-
-                console.log("Data " + data);
-
-            }
-        })
-    }
-    $(document).on("keyup", "#search", function() {
-        let text = $(this).val(),
-            txt = text.trim()
-
-        if (!txt == '') {
-            $.ajax({
-                url: './configurations/actions.php',
-                method: 'POST',
-                data: {
-                    txt,
-                    action: 'search'
-                },
-                success: function(data) {
-                    $('#result').html(data)
-                }
-            })
-        }
-
-    })
-})
-</script>
+<script src="./assets/js/FetchData.ts"></script>
 
 </html>

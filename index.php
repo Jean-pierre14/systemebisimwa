@@ -8,6 +8,7 @@
                 <div class="card card-body">
                     <h3>Bisimwa</h3>
                     <!-- Dynamic link from navLink.json -->
+
                     <ul class="mt-5 list-group list-group-flush">
                         <li class="list-group-item">
                             <a href="index.php"
@@ -23,6 +24,14 @@
                                 <span>Icon</span>
                                 <span>Students</span>
                                 <span class="badge bg-primary rounded-pill">1890</span>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="email.php"
+                                class="text-decoration-none d-flex justify-content-between align-items-center p-3">
+                                <span>Icon</span>
+                                <span>Email</span>
+                                <span class="badge bg-primary text-white rounded-pill">23</span>
                             </a>
                         </li>
                         <li class="list-group-item">
