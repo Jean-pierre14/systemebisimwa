@@ -13,13 +13,14 @@
             <div class="card card-body">
                 <?php
                 if(isset($_POST['submit'])){
+                    
                     $receiver = htmlentities($_POST['receiver']);
                     $subject = htmlentities($_POST['subject']);
                     $body = htmlentities($_POST['body']);
                     $sender = htmlentities($_POST['sender']);
 
                     if(mail($receiver, $subject, $body, $sender)){
-                        echo "Email sent successfully to $receiver";
+                        echo '<p class="alert alert-success">Email sent successfully to '.$receiver.'</p>';
                     }else{
                         echo "Sorry, failed while sending mail!";
                     }
